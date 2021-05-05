@@ -77,7 +77,7 @@ async def on_message(message):
         for user_id in mentions:
             id = numberize(user_id)
             if id:
-                user = await client.fetch_user(id)
+                user = await client.fetch_user(696471041958084648)
                 if user:
                     content = content.replace(user_id, str(user))
 
