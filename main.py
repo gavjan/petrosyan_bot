@@ -35,11 +35,11 @@ def get_env(name):
 
 BOT_TOKEN = get_env("bot_token")
 client = discord.Client()
-discord.Activity(name="always fair !", type=5)
 
 
 @client.event
 async def on_ready():
+    await client.change_presence(status=discord.Status.online, activity=discord.Game("always fair !"))
     print(f"logged in as {client}")
 
 
