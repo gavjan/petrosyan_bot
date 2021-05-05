@@ -4,6 +4,7 @@ import sys
 
 ADMIN_ID = 213341816324489217
 
+
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
@@ -33,7 +34,8 @@ async def on_message(message):
         if message.content.startswith("./hello"):
             await message.channel.send(message.author.id == ADMIN_ID)
         if message.content.startswith("./restart_tiko"):
-            exit(0)
+            if message.author.id == ADMIN_ID:
+                exit(0)
         if message.content.startswith("./test_err"):
             tmp = 0 / 0
 
