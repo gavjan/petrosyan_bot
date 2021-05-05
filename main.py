@@ -79,7 +79,7 @@ async def on_message(message):
                 user = client.get_user(id)
                 if user:
                     await message.reply("```" + user.name + "```")
-                content = content.replace(user_id, user.name)
+                    content = content.replace(user_id, user.name)
 
         content = message.content.lower()
 
