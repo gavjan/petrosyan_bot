@@ -59,6 +59,7 @@ async def on_message(message):
             await message.reply(HOME_URL)
         elif message.content.startswith("/test_tiko"):
             if message.reference is not None:
+                await message.reply(message.reference)
                 await message.reply(message.channel.fetch_message(message.reference.id).author.id)
 
 
