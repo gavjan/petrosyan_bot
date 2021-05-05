@@ -55,7 +55,7 @@ async def on_message(message):
         content = message.content.lower()
 
         if "!petrosyan" in content or "!petrosian" in content:
-            await message.channel.send(SHORTENED_PHRASES[randint(0, len(SHORTENED_PHRASES))])
+            await message.reply(SHORTENED_PHRASES[randint(0, len(SHORTENED_PHRASES))])
         else:
             for keyword in KEYWORDS:
                 if keyword in content:
