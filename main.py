@@ -39,7 +39,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Game("always fair !‎‎‎‎/help_tiko"))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game("always fair ! /help_tiko"))
     print(f"logged in as {client}")
 
 
