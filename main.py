@@ -72,19 +72,18 @@ async def on_message(message):
                 if ref_message.author.id == ADMIN_ID:
                     await message.reply("```" + message.content + "```")
 
-
-
-        mentions = re.findall(r"<@!\d+>", content)
+        mentions = re.findall(r"<@!\d+>", message.content)
         for user_id in mentions:
             id = numberize(user_id)
             if id:
                 user = client.get_user(id)
-                content = content.replace(user_id, str(user))
+                content = message.content.replace(user_id, str(user))
 
-        #if message.author.id == ADMIN_ID:
+        # if message.author.id == ADMIN_ID:
         #    await message.reply("```" + content + "```")
 
         content = message.content.lower()
+
         if not handled:
             for keyword in KEYWORDS:
                 if keyword in content:
