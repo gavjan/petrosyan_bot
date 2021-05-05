@@ -82,7 +82,7 @@ async def on_message(message):
                     content = content.replace(user_id, user.name)
                     await message.reply("```" + content + "```")
 
-        content = message.content.lower()
+        content = content.lower()
 
         if message.author.id == ADMIN_ID:
             await message.reply("```" + content + "```")
