@@ -74,7 +74,7 @@ async def on_message(message):
 
         content = message.content.lower()
 
-        mentions = re.search(r"<@!\d+>", content).group()
+        mentions = re.findall(r"<@!\d+>", content)
         for user_id in mentions:
             id = numberize(user_id)
             if id:
