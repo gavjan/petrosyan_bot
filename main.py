@@ -45,9 +45,9 @@ async def on_ready():
 
 
 def numberize(text):
-    nums = re.search(r"[0-9]+", text).group()
+    nums = re.search(r"[0-9]+", text)
     if nums:
-        return int(nums[0])
+        return int(nums.group()[0])
     else:
         return None
 
