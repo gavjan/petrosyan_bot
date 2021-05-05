@@ -69,7 +69,8 @@ async def on_message(message):
         elif message.content.startswith("/test_tiko"):
             if message.reference is not None:
                 ref_message = await message.channel.fetch_message(message.reference.message_id)
-                if ref_message.author.id == ADMIN_ID:
+                await message.reply("```" + client.user.id + "```")
+                if ref_message.author.id == client.user.id:
                     await message.reply("```" + message.content + "```")
 
         content = message.content
