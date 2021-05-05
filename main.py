@@ -59,7 +59,7 @@ async def on_message(message):
         else:
             for keyword in KEYWORDS:
                 if keyword in content:
-                    await message.channel.send(PASTA)
+                    await message.reply(PASTA)
 
     except Exception as e:
         eprint(e)
