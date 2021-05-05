@@ -2,7 +2,7 @@ import discord
 
 
 def get_env(name):
-    f = open(name, "r")
+    f = open(f".env/{name}", "r")
     val = f.read()
     f.close()
     return val
