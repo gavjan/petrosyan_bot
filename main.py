@@ -39,31 +39,33 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Game("always fair !"))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game("always fair !   \n| /help_tiko"))
     print(f"logged in as {client}")
 
 
 @client.event
 async def on_message(message):
     try:
+        handled = False
         if message.author == client.user:
             return
-        if message.content.startswith("/restart_tiko") and message.author.id == ADMIN_ID:
+        elif message.content.startswith("/restart_tiko") and message.author.id == ADMIN_ID:
             exit(0)
-        if message.content.startswith("/test_err") and message.author.id == ADMIN_ID:
+        elif message.content.startswith("/test_err") and message.author.id == ADMIN_ID:
             tmp = 0 / 0
-        if message.content.startswith("/help_tiko") and message.author.id == ADMIN_ID:
+        elif message.content.startswith("/help_tiko") and message.author.id == ADMIN_ID:
+            handled = True
             await message.reply(HOME_URL)
 
         content = message.content.lower()
 
-        long = False
-        for keyword in KEYWORDS:
-            if keyword in content:
-                await message.reply(PASTA)
-                long = True
+        if not handled:
+            for keyword in KEYWORDS:
+                if keyword in content:
+                    await message.reply(PASTA)
+                    handled = True
 
-        if not long:
+        if not handled:
             for keyword in SHORT_KEYWORDS:
                 if keyword in content:
                     await message.reply(SHORTENED_PHRASES[randint(0, len(SHORTENED_PHRASES))])
