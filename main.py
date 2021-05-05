@@ -2,6 +2,7 @@ from __future__ import print_function
 import discord
 import sys
 from random import choice
+import re
 
 ADMIN_ID = 213341816324489217
 KEYWORDS = {"pipi", "pampers", "պիպի", "պամպերս"}
@@ -43,6 +44,14 @@ async def on_ready():
     print(f"logged in as {client}")
 
 
+def numberize(text):
+    nums = re.search(r"[0-9]+", text).group()
+    if nums:
+        return int(nums[0])
+    else:
+        return None
+
+
 @client.event
 async def on_message(message):
     try:
@@ -65,6 +74,15 @@ async def on_message(message):
 
 
         content = message.content.lower()
+
+        mentions = re.search(r"<@!\d+>", content).group()
+        for user_id in mentions:
+            id = numberize(user_id)
+            if id:
+                user = client.get_user(id)
+                content.replace(user_id, user)
+
+
 
         if not handled:
             for keyword in KEYWORDS:
