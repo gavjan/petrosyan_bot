@@ -80,6 +80,7 @@ async def on_message(message):
                 if user:
                     await message.reply("```" + user.name + "```")
                     content = content.replace(user_id, user.name)
+                    await message.reply("```" + content + "```")
 
         content = message.content.lower()
 
