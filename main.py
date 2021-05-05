@@ -75,9 +75,9 @@ async def on_message(message):
         mentions = re.findall(r"<@!\d+>", content)
         for user_id in mentions:
             id = numberize(user_id)
-            await message.reply("```" + str(id) + "```")
             if id:
                 user = client.get_user(id)
+                await message.reply("```" + user.name + "```")
                 content = content.replace(user_id, str(user))
 
         content = message.content.lower()
