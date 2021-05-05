@@ -30,7 +30,7 @@ async def on_message(message):
         if message.author == client.user:
             return
         if message.content.startswith("./hello"):
-            await message.channel.send("Hello!")
+            await message.channel.send(message.author.id)
         if message.content.startswith("./restart_tiko"):
             exit(0)
         if message.content.startswith("./test_err"):
@@ -39,7 +39,6 @@ async def on_message(message):
     except Exception as e:
         eprint(e)
         exit(1)
-
 
 
 client.run(BOT_TOKEN)
