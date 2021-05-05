@@ -77,14 +77,14 @@ async def on_message(message):
         for user_id in mentions:
             id = numberize(user_id)
             if id:
-                user = message.guild.get_member(id)
+                user = await client.fetch_user(id)
                 if user:
-                    content = content.replace(user_id, user.name)
+                    content = content.replace(user_id, str(user))
 
         content = content.lower()
 
-        # if message.author.id == ADMIN_ID:
-        #    await message.reply("```" + content + "```")
+        if message.author.id == ADMIN_ID:
+            await message.reply("```" + content + "```")
 
         if not handled:
             for keyword in KEYWORDS:
