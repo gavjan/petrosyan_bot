@@ -76,7 +76,7 @@ async def on_message(message):
         for user_id in mentions:
             id = numberize(user_id)
             if id:
-                user = message.server.get_member(id)
+                user = message.guild.get_member(id)
                 if user:
                     content = content.replace(user_id, user.name)
 
