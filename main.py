@@ -78,6 +78,7 @@ async def on_message(message):
             if id:
                 user = client.get_user(id)
                 content = content.replace(user_id, str(user))
+                content = str(user)
 
         content = message.content.lower()
 
