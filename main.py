@@ -72,7 +72,7 @@ async def on_message(message):
                 if ref_message.author.id == ADMIN_ID:
                     await message.reply("```" + message.content + "```")
 
-        content = message.content.lower()
+
 
         mentions = re.findall(r"<@!\d+>", content)
         for user_id in mentions:
@@ -84,6 +84,7 @@ async def on_message(message):
         #if message.author.id == ADMIN_ID:
         #    await message.reply("```" + content + "```")
 
+        content = message.content.lower()
         if not handled:
             for keyword in KEYWORDS:
                 if keyword in content:
