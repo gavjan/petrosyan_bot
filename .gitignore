@@ -137,3 +137,4 @@ local/
 .log_file
 .err
 .err_file
+tmp.py
