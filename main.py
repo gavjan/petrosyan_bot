@@ -61,7 +61,7 @@ async def on_message(message):
             if message.reference is not None:
                 ref_message = await message.channel.fetch_message(message.reference.message_id)
                 if ref_message.author.id == ADMIN_ID:
-                    await message.reply(message.content.replace("#", "$"))
+                    await message.reply("```" + message.content + "```")
 
 
         content = message.content.lower()
