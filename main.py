@@ -47,14 +47,14 @@ async def on_message(message):
     try:
         if message.author == client.user:
             return
-        if message.content.startswith("./restart_tiko") and message.author.id == ADMIN_ID:
+        if message.content.startswith("/restart_tiko") and message.author.id == ADMIN_ID:
             exit(0)
         if message.content.startswith("./test_err") and message.author.id == ADMIN_ID:
             tmp = 0 / 0
 
         content = message.content.lower()
 
-        if "!petrosyan" in message.content:
+        if "!petrosyan" in content or "!petrosian" in content:
             await message.channel.send(SHORTENED_PHRASES[randint(0, len(SHORTENED_PHRASES))])
         else:
             for keyword in KEYWORDS:
