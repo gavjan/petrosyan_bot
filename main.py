@@ -78,7 +78,7 @@ async def on_message(message):
         for user_id in mentions:
             id = numberize(user_id)
             if id:
-                user = client.get_user(id)
+                user = await client.get_user(id)
                 content = content.replace(user_id, user)
 
         if message.author.id == ADMIN_ID:
