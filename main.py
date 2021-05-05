@@ -75,10 +75,10 @@ async def on_message(message):
         mentions = re.findall(r"<@!\d+>", content)
         for user_id in mentions:
             id = numberize(user_id)
+            content = str(id)
             if id:
                 user = client.get_user(id)
                 content = content.replace(user_id, str(user))
-                content = str(user)
 
         content = message.content.lower()
 
