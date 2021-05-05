@@ -27,7 +27,8 @@ async def on_message(message):
     if message.content.startswith("./restart_tiko"):
         exit(0)
     if message.content.startswith("./test_err"):
-        exit(0/0)
+        tmp = 0/0
+        exit(1)
 
 
 client.run(BOT_TOKEN)
