@@ -60,7 +60,8 @@ async def on_message(message):
         elif message.content.startswith("/test_tiko"):
             if message.reference is not None:
                 await message.reply(message.reference)
-                await message.reply(message.channel.fetch_message(message.reference.message_id))
+                ref_message = await message.channel.fetch_message(message.reference.message_id)
+                await message.reply(ref_message)
 
 
         content = message.content.lower()
