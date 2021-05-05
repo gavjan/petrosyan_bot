@@ -55,7 +55,8 @@ def numberize(text):
 @client.event
 async def on_message(message):
     try:
-        handled = False
+        replied, handled = False, False
+
         if message.author == client.user:
             return
         elif message.content.startswith("/restart_tiko") and message.author.id == ADMIN_ID:
@@ -68,9 +69,8 @@ async def on_message(message):
             await message.reply(HOME_URL)
         if message.reference is not None:
             ref_message = await message.channel.fetch_message(message.reference.message_id)
-            await message.reply("```" + str(client.user.id) + "```")
             if ref_message.author.id == client.user.id:
-                await message.reply("```" + message.content + "```")
+                replied = True
 
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
@@ -95,7 +95,7 @@ async def on_message(message):
 
         if not handled:
             for keyword in SHORT_KEYWORDS:
-                if keyword in content:
+                if keyword in content or replied:
                     await message.reply(choice(SHORTENED_PHRASES))
                     break
 
