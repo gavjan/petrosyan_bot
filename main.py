@@ -66,12 +66,11 @@ async def on_message(message):
         elif message.content.startswith("/help_tiko") and message.author.id == ADMIN_ID:
             handled = True
             await message.reply(HOME_URL)
-        elif message.content.startswith("/test_tiko"):
-            if message.reference is not None:
-                ref_message = await message.channel.fetch_message(message.reference.message_id)
-                await message.reply("```" + client.user.id + "```")
-                if ref_message.author.id == client.user.id:
-                    await message.reply("```" + message.content + "```")
+        if message.reference is not None:
+            ref_message = await message.channel.fetch_message(message.reference.message_id)
+            await message.reply("```" + str(client.user.id) + "```")
+            if ref_message.author.id == client.user.id:
+                await message.reply("```" + message.content + "```")
 
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
