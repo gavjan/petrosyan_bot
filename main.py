@@ -82,8 +82,8 @@ async def on_message(message):
 
         content = content.lower()
 
-        if message.author.id == ADMIN_ID:
-            await message.reply("```" + content + "```")
+        # if message.author.id == ADMIN_ID:
+        #    await message.reply("```" + content + "```")
 
         if not handled:
             for keyword in KEYWORDS:
