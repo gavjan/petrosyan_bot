@@ -71,6 +71,7 @@ async def on_message(message):
                 ref_message = await message.channel.fetch_message(message.reference.message_id)
                 if ref_message.author.id == ADMIN_ID:
                     await message.reply("```" + message.content + "```")
+
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
         for user_id in mentions:
@@ -90,11 +91,13 @@ async def on_message(message):
                 if keyword in content:
                     await message.reply(PASTA)
                     handled = True
+                    break
 
         if not handled:
             for keyword in SHORT_KEYWORDS:
                 if keyword in content:
                     await message.reply(choice(SHORTENED_PHRASES))
+                    break
 
     except Exception as e:
         eprint(e)
