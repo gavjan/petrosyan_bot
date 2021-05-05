@@ -1,7 +1,7 @@
 from __future__ import print_function
 import discord
 import sys
-from random import randint
+from random import choice
 
 ADMIN_ID = 213341816324489217
 KEYWORDS = {"pipi", "pampers", "պիպի", "պամպերս"}
@@ -50,6 +50,7 @@ async def on_message(message):
         if message.author == client.user:
             return
         elif message.content.startswith("/restart_tiko") and message.author.id == ADMIN_ID:
+            await message.reply("ok")
             exit(0)
         elif message.content.startswith("/test_err") and message.author.id == ADMIN_ID:
             tmp = 0 / 0
@@ -68,7 +69,7 @@ async def on_message(message):
         if not handled:
             for keyword in SHORT_KEYWORDS:
                 if keyword in content:
-                    await message.reply(SHORTENED_PHRASES[randint(0, len(SHORTENED_PHRASES))])
+                    await message.reply(choice(SHORTENED_PHRASES))
 
     except Exception as e:
         eprint(e)
