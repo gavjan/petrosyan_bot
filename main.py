@@ -58,7 +58,8 @@ async def on_message(message):
             handled = True
             await message.reply(HOME_URL)
         elif message.content.startswith("/test_tiko"):
-            await message.reply(message.reference)
+            await message.reply(message.channel.fetch_message(message.reference.id).author)
+            await message.reply(message.reference.author)
 
         content = message.content.lower()
 
