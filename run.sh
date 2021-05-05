@@ -1,4 +1,5 @@
 send_mail() {
+  echo "Sending error mail..."
   sed -i "s/\"/'/g" .err_file
   curl "https://api.postmarkapp.com/email" \
   -X POST \
@@ -16,6 +17,6 @@ send_mail() {
 
 
 while true; do
-  python3 main.py 2>.err_file || send_mail "$(cat .err_file)"
+  python3 main.py 2>.err_file || send_mail
   git pull
 done
