@@ -2,6 +2,7 @@ from __future__ import print_function
 import discord
 import sys
 
+ADMIN_ID = 213341816324489217
 
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
@@ -30,7 +31,7 @@ async def on_message(message):
         if message.author == client.user:
             return
         if message.content.startswith("./hello"):
-            await message.channel.send(message.author.id)
+            await message.channel.send(message.author.id == ADMIN_ID)
         if message.content.startswith("./restart_tiko"):
             exit(0)
         if message.content.startswith("./test_err"):
