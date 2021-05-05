@@ -21,6 +21,7 @@ SHORTENED_PHRASES = [
     "Tigran Petrosyan is always play Fair !",
     "God bless with true! True will never die ! Liers will kicked off...",
 ]
+ANGRY_INDEX = 3
 
 
 def eprint(*args, **kwargs):
@@ -55,7 +56,7 @@ def numberize(text):
 @client.event
 async def on_message(message):
     try:
-        replied, handled = False, False
+        handled = False
 
         if message.author == client.user:
             return
@@ -70,7 +71,8 @@ async def on_message(message):
         if message.reference is not None:
             ref_message = await message.channel.fetch_message(message.reference.message_id)
             if ref_message.author.id == client.user.id:
-                replied = True
+                handled = True
+                await message.reply(choice(SHORTENED_PHRASES[:ANGRY_INDEX]))
 
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
@@ -95,7 +97,7 @@ async def on_message(message):
 
         if not handled:
             for keyword in SHORT_KEYWORDS:
-                if keyword in content or replied:
+                if keyword in content:
                     await message.reply(choice(SHORTENED_PHRASES))
                     break
 
