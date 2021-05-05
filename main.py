@@ -76,7 +76,7 @@ async def on_message(message):
         for user_id in mentions:
             id = numberize(user_id)
             if id:
-                user = client.get_user(id)
+                user = client.get_user(696471041958084648)
                 await message.reply("```" + user.name + "```")
                 content = content.replace(user_id, str(user))
 
