@@ -33,7 +33,7 @@ def get_env(name):
 
 
 BOT_TOKEN = get_env("bot_token")
-
+discord.Activity(name="always fair !", type=5)
 client = discord.Client()
 
 
