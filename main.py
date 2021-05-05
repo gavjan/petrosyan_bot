@@ -71,13 +71,13 @@ async def on_message(message):
                 ref_message = await message.channel.fetch_message(message.reference.message_id)
                 if ref_message.author.id == ADMIN_ID:
                     await message.reply("```" + message.content + "```")
-
-        mentions = re.findall(r"<@!\d+>", message.content)
+        content = message.content
+        mentions = re.findall(r"<@!\d+>", content)
         for user_id in mentions:
             id = numberize(user_id)
             if id:
                 user = client.get_user(id)
-                content = message.content.replace(user_id, str(user))
+                content = content.replace(user_id, str(user))
 
         content = message.content.lower()
 
