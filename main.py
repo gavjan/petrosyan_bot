@@ -68,6 +68,8 @@ async def on_message(message):
         elif message.content.startswith("/help_tiko") and message.author.id == ADMIN_ID:
             handled = True
             await message.reply(HOME_URL)
+        elif message.content.startswith("/special") and message.author.id == ADMIN_ID:
+            await message.reply(f"<@!183302395101577226> and <@!696471041958084648> I officially invite you to an Over The Board match. Winner gets to keep the name Tigran")
 
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
