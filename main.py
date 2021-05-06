@@ -69,7 +69,7 @@ async def on_message(message):
             handled = True
             await message.reply(HOME_URL)
         elif message.content.startswith("/special") and message.author.id == ADMIN_ID:
-            await message.channel.fetch_message(f"<@!183302395101577226> and <@!696471041958084648> I officially invite you to Over The Board match.\nWinner keep the name Tigran.\nYou has a year to prepare.")
+            await message.channel.send(f"<@!183302395101577226> and <@!696471041958084648> I officially invite you to Over The Board match.\nWinner keep the name Tigran.\nYou has a year to prepare.")
 
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
