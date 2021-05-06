@@ -68,11 +68,6 @@ async def on_message(message):
         elif message.content.startswith("/help_tiko") and message.author.id == ADMIN_ID:
             handled = True
             await message.reply(HOME_URL)
-        if message.reference is not None:
-            ref_message = await message.channel.fetch_message(message.reference.message_id)
-            if ref_message.author.id == client.user.id:
-                handled = True
-                await message.reply(choice(SHORTENED_PHRASES[:ANGRY_INDEX]))
 
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
@@ -87,6 +82,14 @@ async def on_message(message):
 
         # if message.author.id == ADMIN_ID:
         #    await message.reply("```" + content + "```")
+        if DONT_COMMENT_KEYWORD in content:
+            handled = True
+        
+        if message.reference and not handled:
+            ref_message = await message.channel.fetch_message(message.reference.message_id)
+            if ref_message.author.id == client.user.id:
+                handled = True
+                await message.reply(choice(SHORTENED_PHRASES[:ANGRY_INDEX]))
 
         if not handled:
             for keyword in KEYWORDS:
