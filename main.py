@@ -80,8 +80,8 @@ async def on_message(message):
 
         content = content.lower()
 
-        # if message.author.id == ADMIN_ID:
-        #    await message.reply("```" + content + "```")
+        if message.author.id == ADMIN_ID:
+            await message.reply("```" + content + "```")
 
         if DONT_COMMENT_KEYWORD in content:
             handled = True
@@ -91,6 +91,8 @@ async def on_message(message):
             if ref_message.author.id == client.user.id:
                 handled = True
                 await message.reply(choice(SHORTENED_PHRASES[:ANGRY_INDEX]))
+            else:
+                message = ref_message
 
         if not handled:
             for keyword in KEYWORDS:
