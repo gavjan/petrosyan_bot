@@ -93,7 +93,7 @@ async def on_message(message):
             ref_message = await message.channel.fetch_message(message.reference.message_id)
             if ref_message.author.id == client.user.id:
                 handled = True
-                await message.reply(choice(SHORTENED_PHRASES[:ANGRY_INDEX]))
+                await message.reply(choice(SHORTENED_PHRASES[:ANGRY_INDEX]), tts=True)
             else:
                 message = ref_message
 
