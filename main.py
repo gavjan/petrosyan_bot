@@ -65,7 +65,7 @@ async def on_message(message):
             exit(0)
         elif message.content.startswith("/test_err") and message.author.id == ADMIN_ID:
             print(0 / 0)
-        elif message.content.startswith("/help_tiko") and message.author.id == ADMIN_ID:
+        elif message.content.startswith("/help_tiko"):
             handled = True
             await message.reply(HOME_URL)
         elif message.content.startswith("/special") and message.author.id == ADMIN_ID:
