@@ -1,4 +1,4 @@
-Thanks to [fmhall](https://github.com/fmhall) for the original idea for [PetrosianBot](https://github.com/fmhall/Petrosian-Bot)
+Thanks to [fmhall](https://github.com/fmhall) for the original idea for [u/PetrosianBot](https://www.reddit.com/user/PetrosianBot)
 
 # Petrosyan Bot
 
