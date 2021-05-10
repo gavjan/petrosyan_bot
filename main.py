@@ -65,11 +65,13 @@ async def on_message(message):
             exit(0)
         elif message.content.startswith("/test_err") and message.author.id == ADMIN_ID:
             print(0 / 0)
+        elif message.content.startswith("/servers") and message.author.id == ADMIN_ID:
+            await message.channel.send(str(len(client.guilds)))
+#       elif message.content.startswith("/special") and message.author.id == ADMIN_ID:
+#            await message.channel.send("<@!183302395101577226> and <@!696471041958084648> I officially invite you to Over The Board match.\nWinner keep the name Tigran.\nYou has a year to prepare.", tts=True)
         elif message.content.startswith("/help_tiko"):
             handled = True
             await message.reply(HOME_URL)
-        elif message.content.startswith("/special") and message.author.id == ADMIN_ID:
-            await message.channel.send("<@!183302395101577226> and <@!696471041958084648> I officially invite you to Over The Board match.\nWinner keep the name Tigran.\nYou has a year to prepare.", tts=True)
 
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
