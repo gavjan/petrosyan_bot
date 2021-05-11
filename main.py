@@ -67,8 +67,8 @@ async def on_message(message):
             print(0 / 0)
         elif message.content.startswith("/servers") and message.author.id == ADMIN_ID:
             await message.channel.send(str(len(client.guilds)))
-#       elif message.content.startswith("/special") and message.author.id == ADMIN_ID:
-#            await message.channel.send("<@!183302395101577226> and <@!696471041958084648> I officially invite you to Over The Board match.\nWinner keep the name Tigran.\nYou has a year to prepare.", tts=True)
+        #       elif message.content.startswith("/special") and message.author.id == ADMIN_ID:
+        #            await message.channel.send("<@!183302395101577226> and <@!696471041958084648> I officially invite you to Over The Board match.\nWinner keep the name Tigran.\nYou has a year to prepare.", tts=True)
         elif message.content.startswith("/help_tiko"):
             handled = True
             await message.reply(HOME_URL)
@@ -92,12 +92,15 @@ async def on_message(message):
                 handled = True
 
         if message.reference and not handled:
-            ref_message = await message.channel.fetch_message(message.reference.message_id)
-            if ref_message.author.id == client.user.id:
-                handled = True
-                await message.reply(choice(SHORTENED_PHRASES[:ANGRY_INDEX]), tts=True)
-            else:
-                message = ref_message
+            try:
+                ref_message = await message.channel.fetch_message(message.reference.message_id)
+                if ref_message.author.id == client.user.id:
+                    handled = True
+                    await message.reply(choice(SHORTENED_PHRASES[:ANGRY_INDEX]), tts=True)
+                else:
+                    message = ref_message
+            except:
+                pass
 
         if not handled:
             for keyword in KEYWORDS:
