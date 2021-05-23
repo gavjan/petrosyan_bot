@@ -6,7 +6,7 @@ import re
 
 ADMIN_ID = 213341816324489217
 KEYWORDS = {"pipi", "pampers", "պիպի", "պամպերս"}
-SHORT_KEYWORDS = {"tiko", "tigran", "petrosian", "petrosyan", "տիկո", "տիգրան", "պետրոսյան", "keepo"}
+SHORT_KEYWORDS = {"tigran", "petrosian", "petrosyan", "տիգրան", "պետրոսյան", "keepo"}
 IGNORE_LIST = ["!nopipi", "tikothonk", "tikodab"]
 HOME_URL = "http://tiny.cc/petrosyan"
 PASTA = """Are you kidding ??? What the \*\*\*\* are you talking about man ? You are a biggest looser i ever seen in my life ! You was doing PIPI in your pampers when i was beating players much more stronger then you! You are not proffesional, because proffesionals knew how to lose and congratulate opponents, you are like a girl crying after i beat you! Be brave, be honest to yourself and stop this trush talkings!!! Everybody know that i am very good blitz player, i can win anyone in the world in single game! And "w"esley "s"o is nobody for me, just a player who are crying every single time when loosing, ( remember what you say about Firouzja ) !!! Stop playing with my name, i deserve to have a good name during whole my chess carrier, I am Officially inviting you to OTB blitz match with the Prize fund! Both of us will invest 5000$ and winner takes it all!
