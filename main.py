@@ -60,6 +60,9 @@ async def on_message(message):
 
         if message.author == client.user:
             return
+        elif message.content.startswith("/say ") and message.author.id == ADMIN_ID:
+            await message.channel.send(message.content[5:], tts=True)
+            handled = True
         elif message.content.startswith("/restart_tiko") and message.author.id == ADMIN_ID:
             await message.reply("ok")
             exit(0)
@@ -67,11 +70,9 @@ async def on_message(message):
             print(0 / 0)
         elif message.content.startswith("/servers") and message.author.id == ADMIN_ID:
             await message.channel.send(str(len(client.guilds)))
-        elif message.content.startswith("/say ") and message.author.id == ADMIN_ID:
-            await message.channel.send(message.content[5:], tts=True)
         elif message.content.startswith("/help_tiko"):
-            handled = True
             await message.reply(HOME_URL)
+            handled = True
 
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
