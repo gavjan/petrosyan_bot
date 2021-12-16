@@ -1,5 +1,7 @@
 from __future__ import print_function
 import discord
+from discord.utils import get
+
 import sys
 from random import choice
 import re
@@ -72,6 +74,11 @@ async def on_message(message):
             await message.channel.send(str(len(client.guilds)))
         elif message.content.startswith("/help_tiko"):
             await message.reply(HOME_URL)
+            handled = True
+        elif re.search(r"\b(gm|գմ)\b", message.content, re.IGNORECASE):
+            for emoji_id in ["🇬", "🇲", "baj"]:
+                emoji = get(client.emojis, name=emoji_id)
+                await message.add_reaction(emoji or emoji_id)
             handled = True
 
         content = message.content
