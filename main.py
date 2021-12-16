@@ -80,6 +80,11 @@ async def on_message(message):
                 emoji = get(client.emojis, name=emoji_id)
                 await message.add_reaction(emoji or emoji_id)
             handled = True
+        elif re.search(r"\b(gn|գն)\b", message.content, re.IGNORECASE):
+            for emoji_id in ["🇬", "🇳", "gandz"]:
+                emoji = get(client.emojis, name=emoji_id)
+                await message.add_reaction(emoji or emoji_id)
+            handled = True
 
         content = message.content
         mentions = re.findall(r"<@!\d+>", content)
