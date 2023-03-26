@@ -62,7 +62,7 @@ async def on_message(message):
 
         if message.author == client.user:
             return
-        elif message.content.startswith("/say ") and message.author.id == ADMIN_ID:
+        elif message.content.startswith("/asa ") and message.author.id == ADMIN_ID:
             await message.channel.send(message.content[5:], tts=True)
             handled = True
         elif message.content.startswith("/restart_tiko") and message.author.id == ADMIN_ID:
