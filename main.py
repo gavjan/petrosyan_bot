@@ -38,7 +38,7 @@ def get_env(name):
 
 
 BOT_TOKEN = get_env("bot_token")
-client = discord.Client(intents=discord.Intents.all())
+client = discord.Client(intents=discord.Intents.default())
 
 
 @client.event
