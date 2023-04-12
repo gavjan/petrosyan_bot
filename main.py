@@ -31,7 +31,7 @@ def eprint(*args, **kwargs):
 
 
 def get_env(name):
-    f = open(f".env/{name}", "r")
+    f = open(f".env/{name}.env", "r")
     val = f.read()
     f.close()
     return val
