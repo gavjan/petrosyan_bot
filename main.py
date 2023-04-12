@@ -1,5 +1,6 @@
 from __future__ import print_function
 import discord
+from discord.ext import commands
 from discord.utils import get
 
 import sys
@@ -38,7 +39,7 @@ def get_env(name):
 
 
 BOT_TOKEN = get_env("bot_token")
-client = discord.Client(intents=discord.Intents.default())
+client = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
 
 @client.event
