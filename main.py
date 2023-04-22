@@ -76,12 +76,12 @@ async def on_message(message):
         elif message.content.startswith("/help_tiko"):
             await message.reply(HOME_URL)
             handled = True
-        elif re.search(r"(\W|_|\d|^)(gm|գմ)(\W|_|\d|$)", message.content, flags=re.UNICODE | re.IGNORECASE):
+        elif re.search(r"(\W|_|\d|^)(gm|գմ|gmgm|գմգմ)(\W|_|\d|$)", message.content, flags=re.UNICODE | re.IGNORECASE):
             for emoji_id in ["🇬", "🇲", "baj"]:
                 emoji = get(client.emojis, name=emoji_id)
                 await message.add_reaction(emoji or emoji_id)
             handled = True
-        elif re.search(r"(\W|_|\d|^)(gn|գն|bg|բգ)(\W|_|\d|$)", message.content, flags=re.UNICODE | re.IGNORECASE):
+        elif re.search(r"(\W|_|\d|^)(gn|գն|bg|բգ|gngn|գնգն|bgbg|բգբգ)(\W|_|\d|$)", message.content, flags=re.UNICODE | re.IGNORECASE):
             for emoji_id in ["🇬", "🇳", "gandz"]:
                 emoji = get(client.emojis, name=emoji_id)
                 await message.add_reaction(emoji or emoji_id)
